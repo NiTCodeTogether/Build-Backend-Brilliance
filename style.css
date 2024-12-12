@@ -1,0 +1,179 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar .auth-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .auth-buttons button {
+    margin-left: 10px;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.navbar .auth-buttons .login-btn {
+    background-color: #0056b3;
+}
+
+.navbar .auth-buttons .signup-btn {
+    background-color: #28a745;
+}
+
+.user-dp {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.main-container {
+    padding: 20px;
+}
+
+.notes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.note-card {
+    background-color: white;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.note-card h3 {
+    margin-bottom: 10px;
+    color: #007BFF;
+}
+
+.note-card p {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.note-card .note-date {
+    font-size: 0.8rem;
+    color: gray;
+    margin-bottom: 15px;
+}
+
+.note-card .note-actions {
+    margin-top: auto;
+    display: flex;
+    gap: 10px;
+}
+
+.note-card .note-actions button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.note-card .note-actions .edit-btn {
+    background-color: #ffc107;
+    color: black;
+}
+
+.note-card .note-actions .delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.auth-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.auth-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.auth-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-container label {
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.auth-container input {
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.auth-container button {
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.auth-container button:hover {
+    background-color: #0056b3;
+}
+
+.navbar .auth-buttons .logout-btn {
+    background-color: #dc3545;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 0.9rem;
+}
+
+.navbar .auth-buttons .logout-btn:hover {
+    background-color: #b02a37;
+}
