@@ -1,32 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="auth-container">
-        <h2>Login</h2>
-        <form id="loginForm">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            
-            <button type="submit">Login</button>
-        </form>
-    </div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Login</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="auth-container">
+			<h2>Login</h2>
+			<form id="loginForm">
+				<label for="email">Email:</label>
+				<input type="email" id="email" name="email" required />
 
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            // Simulate successful login
-            localStorage.setItem('isLoggedIn', 'true');
-            window.location.href = 'index.html';
-        });
-    </script>
-</body>
+				<label for="password">Password:</label>
+				<input type="password" id="password" name="password" required />
+
+				<button type="submit">Login</button>
+			</form>
+			<br />
+			<p>
+				Don't have an account?
+				<button onclick="location.href='signup.html'">
+					Sign up here</button
+				>.
+			</p>
+			<br />
+			<button onclick="location.href='index.html'">Notes Page</button>
+		</div>
+
+		<script>
+			document
+				.getElementById("loginForm")
+				.addEventListener("submit", (e) => {
+					e.preventDefault();
+					localStorage.setItem("isLoggedIn", "true");
+					window.location.href = "index.html";
+					alert("Login successful!");
+				});
+		</script>
+	</body>
 </html>
