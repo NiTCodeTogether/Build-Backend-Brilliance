@@ -10,8 +10,8 @@
 		<div class="auth-container">
 			<h2>Login</h2>
 			<form id="loginForm">
-				<label for="email">Email:</label>
-				<input type="email" id="email" name="email" required />
+				<label for="username">Username:</label>
+				<input type="text" id="username" name="username" required />
 
 				<label for="password">Password:</label>
 				<input type="password" id="password" name="password" required />
@@ -32,11 +32,39 @@
 		<script>
 			document
 				.getElementById("loginForm")
-				.addEventListener("submit", (e) => {
+				.addEventListener("submit", async (e) => {
 					e.preventDefault();
-					localStorage.setItem("isLoggedIn", "true");
-					window.location.href = "index.html";
-					alert("Login successful!");
+
+					const username = document.getElementById("username").value;
+					const password = document.getElementById("password").value;
+
+					try {
+						const response = await fetch(
+							"http://localhost:3000/api/users/login",
+							{
+								method: "POST",
+								headers: {
+									"Content-Type": "application/json",
+								},
+								body: JSON.stringify({ username, password }),
+							}
+						);
+
+						const data = await response.json();
+
+						if (response.ok) {
+							localStorage.setItem("isLoggedIn", "true");
+							alert("Login successful!");
+							window.location.href = "index.html";
+						} else {
+							alert(
+								data.message ||
+									"Login failed. Please try again."
+							);
+						}
+					} catch (error) {
+						alert("An error occurred. Please try again later.");
+					}
 				});
 		</script>
 	</body>

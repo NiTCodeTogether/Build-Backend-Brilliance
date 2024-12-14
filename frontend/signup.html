@@ -34,11 +34,43 @@
 		<script>
 			document
 				.getElementById("signupForm")
-				.addEventListener("submit", (e) => {
+				.addEventListener("submit", async (e) => {
 					e.preventDefault();
-					// Simulate successful signup
-					localStorage.setItem("isLoggedIn", "true");
-					window.location.href = "index.html";
+
+					const username = document.getElementById("username").value;
+					const email = document.getElementById("email").value;
+					const password = document.getElementById("password").value;
+
+					try {
+						const response = await fetch(
+							"http://localhost:3000/api/users/signup",
+							{
+								method: "POST",
+								headers: {
+									"Content-Type": "application/json",
+								},
+								body: JSON.stringify({
+									username,
+									email,
+									password,
+								}),
+							}
+						);
+
+						const data = await response.json();
+
+						if (response.ok) {
+							alert("Signup successful!");
+							window.location.href = "login.html";
+						} else {
+							alert(
+								data.message ||
+									"Signup failed. Please try again."
+							);
+						}
+					} catch (error) {
+						alert("An error occurred. Please try again later.");
+					}
 				});
 		</script>
 	</body>
